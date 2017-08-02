@@ -12,6 +12,7 @@ public class TestDriver {
 		TRMSDAO dao = new TRMSDAO();
 		try {
 			dao.newEmployee(blake);
+			System.out.println("success");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

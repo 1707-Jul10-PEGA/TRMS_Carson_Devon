@@ -42,6 +42,18 @@ public class TRMSDAO implements TRMSDAO_interface{
 		return pass;
 	}
 	
+	public boolean validate(String username, String password) {
+		try {
+			String actual = this.getPassword(username);
+			if(actual.equals(password)) {
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	public int newEmployee(Employee e) throws SQLException {
 		//for adding new Employees to the database
 		String sql = "insert into employee(first_name, last_name, username, password, ds_id, dh_id) values(?, ?, ?, ?, ?, ?)";
